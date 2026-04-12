@@ -166,6 +166,38 @@ Response (201 Created):
 
 ---
 
+#### 2️⃣ List All Contracts
+**GET** `/v1/contratos/listar-todos`
+
+cURL Example:
+```bash
+curl --request GET \
+  --url http://localhost:8080/v1/contratos/listar-todos \
+  --header 'User-Agent: insomnia/10.3.1'
+```
+
+Response (200 OK):
+```json
+[
+  {
+    "contratoId": 1,
+    "cpf": "12345678900",
+    "nomeTitular": "João Silva",
+    "valorMensal": 2500.00,
+    "ativo": true
+  },
+  {
+    "contratoId": 2,
+    "cpf": "98765432100",
+    "nomeTitular": "Maria Santos",
+    "valorMensal": 3200.00,
+    "ativo": false
+  }
+]
+```
+
+---
+
 ## 📂 Project Structure
 
 The project follows a layered architecture pattern:
