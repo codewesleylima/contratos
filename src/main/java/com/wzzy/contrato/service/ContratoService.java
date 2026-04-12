@@ -9,4 +9,6 @@ public interface ContratoService {
     ContratoModel cadastrarContrato(ContratoModel contratoModel);
 
     List<ContratoModel> listarContratos();
+
+    List<ContratoModel> buscarContratosPorStatus(boolean status);
 }
