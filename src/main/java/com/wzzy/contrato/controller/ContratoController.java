@@ -21,7 +21,7 @@ public class ContratoController {
         this.contratoService = contratoService;
     }
 
-    @PostMapping("/exibir/todos")
+    @PostMapping("/cadastrar")
     public ResponseEntity<ContratoModel> cadastrarContrato(@RequestBody ContratoModel contratoModel) {
 
         ContratoModel novoContrato = contratoService.cadastrarContrato(contratoModel);
