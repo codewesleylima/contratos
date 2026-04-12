@@ -1,9 +1,7 @@
 package com.wzzy.contrato.service;
 
-import com.wzzy.contrato.model.Contrato;
 import com.wzzy.contrato.model.ContratoModel;
 import com.wzzy.contrato.repository.ContratoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,5 +18,10 @@ public class ContratoServiceImpl implements ContratoService {
     @Override
     public ContratoModel cadastrarContrato(ContratoModel contratoModel) {
         return repository.save(contratoModel);
+    }
+
+    @Override
+    public List<ContratoModel> listarContratos() {
+        return repository.findAll();
     }
 }
