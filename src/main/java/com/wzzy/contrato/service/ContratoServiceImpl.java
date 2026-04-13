@@ -5,6 +5,7 @@ import com.wzzy.contrato.repository.ContratoRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ContratoServiceImpl implements ContratoService {
@@ -28,5 +29,10 @@ public class ContratoServiceImpl implements ContratoService {
     @Override
     public List<ContratoModel> buscarContratosPorStatus(boolean status) {
         return repository.findByStatus(status);
+    }
+
+    @Override
+    public Optional<ContratoModel> buscarContratoPorNome(String nome) {
+        return repository.findByNomeTitular(nome);
     }
 }
