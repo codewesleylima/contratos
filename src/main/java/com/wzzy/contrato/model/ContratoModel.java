@@ -21,5 +21,5 @@ public class ContratoModel {
     private String cpf;
     private String nomeTitular;
     private double valorMensal;
-    private boolean ativo;
+    private boolean status;
 }
