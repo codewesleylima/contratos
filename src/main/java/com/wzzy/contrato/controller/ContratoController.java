@@ -1,7 +1,9 @@
 package com.wzzy.contrato.controller;
 
 import com.wzzy.contrato.model.ContratoModel;
+import com.wzzy.contrato.model.dto.ContratoDTO;
 import com.wzzy.contrato.service.ContratoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,9 +24,9 @@ public class ContratoController {
     }
 
     @PostMapping("/cadastrar")
-    public ResponseEntity<ContratoModel> cadastrarContrato(@RequestBody ContratoModel contratoModel) {
+    public ResponseEntity<ContratoModel> cadastrarContrato(@RequestBody ContratoDTO contratoDTO) {
 
-        ContratoModel novoContrato = contratoService.cadastrarContrato(contratoModel);
+        ContratoModel novoContrato = contratoService.cadastrarContrato(contratoDTO);
         return new ResponseEntity<>(novoContrato, HttpStatus.CREATED);
     }
 
@@ -38,7 +40,7 @@ public class ContratoController {
         return contratoService.buscarContratosPorStatus(status);
     }
 
-    @GetMapping("buscar-nome/{nome}")
+    @GetMapping("/buscar-nome/{nome}")
     public Optional<ContratoModel> buscarContratosPorNome(@PathVariable String nome) {
         return contratoService.buscarContratoPorNome(nome);
     }
