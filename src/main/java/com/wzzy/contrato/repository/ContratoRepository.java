@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ContratoRepository extends JpaRepository<ContratoModel, Long> {
 
-    List<ContratoModel> findByAtivo(boolean ativo);
+    List<ContratoModel> findByStatus(boolean status);
 
     List<ContratoModel> findByNomeTitular(String nomeTitular);
 }
