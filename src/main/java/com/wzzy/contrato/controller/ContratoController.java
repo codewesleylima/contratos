@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("v1/contratos")
@@ -35,6 +36,11 @@ public class ContratoController {
     @GetMapping("/listar-status/{status}")
     public List<ContratoModel> buscarContratosPorStatus(@PathVariable boolean status) {
         return contratoService.buscarContratosPorStatus(status);
+    }
+
+    @GetMapping("buscar-nome/{nome}")
+    public Optional<ContratoModel> buscarContratosPorNome(@PathVariable String nome) {
+        return contratoService.buscarContratoPorNome(nome);
     }
 
 }
