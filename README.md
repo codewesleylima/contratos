@@ -2,152 +2,34 @@
   <img src="https://iili.io/3FFO5cF.png" alt="Universidade Católica de Brasília">
 </p>
 
-## CONTRACT MANAGEMENT API PROJECT 📋 📑:
+## PROJETO PESSOAL - GERENCIAMENTO DE CONTRATOS 📋 📑:
 
-#### Description:
-REST API developed for contract management, allowing users to register contracts in the database. This project practices the construction of backend applications using Spring Boot, following a layered architecture pattern.
+#### Descrição:
+Projeto voltado para a criação de uma API REST que cadastre contratos no banco de dados local, seguindo arquitetura em camadas com Spring Boot.
 
-#### Features:
-1. 📝 Register new contracts;
-2. 📋 List all contracts;
-3. 🔍 Search contracts by status;
-4. 🔎 Search contract by holder name;
+#### Funcionalidades:
+1. 📝 Cadastro de contratos;
+2. 📋 Listagem de contratos;
+3. 🔍 Busca de contratos por status;
+4. 🔎 Busca de contrato por nome do titular;
 
-#### Technologies Used:
-- ☕ Java 26;
-- 🍃 Spring Boot 4.0.5;
+#### Tecnologias utilizadas:
+- ☕ Java 25;
+- 🍃 Spring Boot 3.2.0;
 - 🐘 Gradle;
 - 🗃️ JPA/Hibernate;
-- 🐬 MySQL;
+- 🐬 H2 Database;
 - 🔒 Lombok;
 - ✔️ Spring Validation;
 
----
+#### Curl de exemplo:
 
-## 🛢️ MySQL Database Configuration
-
-### Prerequisites:
-Before starting, you will need to have installed:
-- Java 26+
-- Gradle
-- MySQL 8.0+
-- Git
-
----
-
-### Step 1: Create the Database
-
-Connect to MySQL and create a new database:
-
-```sql
-CREATE DATABASE contratos_db;
-USE contratos_db;
-```
-
----
-
-### Step 2: Configure Environment Variables
-
-The application uses environment variables for database connection. Set the following variables on your system:
-
-**On Windows (Command Prompt):**
+1 - Cadastro de contrato:
 ```cmd
-setx DB_URL "jdbc:mysql://localhost:3306/contratos_db"
-setx DB_USER "root"
-setx DB_PASSWORD "your_password"
-```
-
-**On Windows (PowerShell):**
-```powershell
-$env:DB_URL = "jdbc:mysql://localhost:3306/contratos_db"
-$env:DB_USER = "root"
-$env:DB_PASSWORD = "your_password"
-```
-
-**On macOS/Linux:**
-```bash
-export DB_URL="jdbc:mysql://localhost:3306/contratos_db"
-export DB_USER="root"
-export DB_PASSWORD="your_password"
-```
-
----
-
-### Step 3: Alternative - Application Properties Configuration
-
-If you prefer to configure directly in the application, you can also set the properties in `src/main/resources/application.properties`:
-
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/contratos_db
-spring.datasource.username=root
-spring.datasource.password=your_password
-spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
-spring.jpa.open-in-view=false
-```
-
-> **Note:** Automatic table creation is enabled with `ddl-auto=update`. Tables will be created automatically when the application starts.
-
----
-
-## ▶️ Running the Application
-
-### Clone the Repository:
-```bash
-git clone https://github.com/codewesleylima/contratos
-cd contratos
-```
-
-### Build and Run with Gradle:
-
-**On Windows:**
-```bash
-.\gradlew.bat bootRun
-```
-
-**On macOS/Linux:**
-```bash
-./gradlew bootRun
-```
-
-The API will be available at:
-```
-http://localhost:8080
-```
-
----
-
-## 📡 API Usage Examples
-
-You can test the endpoints using tools like:
-- **Postman**
-- **Insomnia**
-- **cURL** (command line)
-
----
-
-### Available Endpoints:
-
-#### 1️⃣ Register a New Contract
-**POST** `/v1/contratos/cadastrar`
-
-Request body:
-```json
-{
-  "cpf": "12345678900",
-  "nomeTitular": "João Silva",
-  "valorMensal": 2500.00,
-  "Status": true
-}
-```
-
-cURL Example:
-```bash
 curl --request POST \
   --url http://localhost:8080/v1/contratos/cadastrar \
   --header 'Content-Type: application/json' \
+  --header 'User-Agent: insomnia/10.3.1' \
   --data '{
   "cpf": "12345678900",
   "nomeTitular": "João Silva",
@@ -156,161 +38,28 @@ curl --request POST \
 }'
 ```
 
-Response (201 Created):
-```json
-{
-  "contratoId": 1,
-  "cpf": "12345678900",
-  "nomeTitular": "João Silva",
-  "valorMensal": 2500.00,
-  "status": true
-}
-```
-
----
-
-#### 2️⃣ List All Contracts
-**GET** `/v1/contratos/listar-todos`
-
-cURL Example:
-```bash
+2 - Listagem de contratos:
+```cmd
 curl --request GET \
   --url http://localhost:8080/v1/contratos/listar-todos \
   --header 'User-Agent: insomnia/10.3.1'
 ```
 
-Response (200 OK):
-```json
-[
-  {
-    "contratoId": 1,
-    "cpf": "12345678900",
-    "nomeTitular": "João Silva",
-    "valorMensal": 2500.00,
-    "status": true
-  },
-  {
-    "contratoId": 2,
-    "cpf": "98765432100",
-    "nomeTitular": "Maria Santos",
-    "valorMensal": 3200.00,
-    "status": false
-  }
-]
-```
-
----
-
-#### 3️⃣ Search Contracts by Status
-**GET** `/v1/contratos/buscar-por-status/{status}`
-
-cURL Example (searching for active contracts):
-```bash
+3 - Busca de contratos por status:
+```cmd
 curl --request GET \
-  --url http://localhost:8080/v1/contratos/buscar-por-status/true \
+  --url http://localhost:8080/v1/contratos/listar-status/true \
   --header 'User-Agent: insomnia/10.3.1'
 ```
 
-Response (200 OK):
-```json
-[
-  {
-    "contratoId": 1,
-    "cpf": "12345678900",
-    "nomeTitular": "João Silva",
-    "valorMensal": 2500.00,
-    "status": true
-  }
-]
-```
-
----
-
-#### 4️⃣ Search Contract by Holder Name
-**GET** `/v1/contratos/buscar-por-nome/{nome}`
-
-cURL Example (searching for contracts of holder "João Silva"):
-```bash
+4 - Busca de contrato por nome:
+```cmd
 curl --request GET \
-  --url http://localhost:8080/v1/contratos/buscar-por-nome/João%20Silva \
+  --url http://localhost:8080/v1/contratos/buscar-nome/João \
   --header 'User-Agent: insomnia/10.3.1'
 ```
 
-Response (200 OK):
-```json
-[
-  {
-    "contratoId": 1,
-    "cpf": "12345678900",
-    "nomeTitular": "João Silva",
-    "valorMensal": 2500.00,
-    "status": true
-  }
-]
-```
-
----
-
-## 📂 Project Structure
-
-The project follows a layered architecture pattern:
-
-```
-src/
-├── main/
-│   ├── java/com/wzzy/contrato/
-│   │   ├── ContratoApplication.java          # Main Spring Boot application
-│   │   ├── controller/
-│   │   │   └── ContratoController.java       # HTTP request handlers
-│   │   ├── model/
-│   │   │   └── ContratoModel.java            # Entity/Domain model
-│   │   ├── repository/
-│   │   │   └── ContratoRepository.java       # Data access layer
-│   │   └── service/
-│   │       ├── ContratoService.java          # Service interface
-│   │       └── ContratoServiceImpl.java       # Service implementation
-│   └── resources/
-│       └── application.properties            # Application configuration
-└── test/
-    └── java/com/wzzy/contrato/
-        └── ContratoApplicationTests.java     # Integration tests
-```
-
-### Layer Responsibilities:
-
-- **Controller** → Handles HTTP requests and responses
-- **Service** → Business logic and application rules
-- **Repository** → Database communication and queries
-- **Model** → Entity representation and database mapping
-
----
-
-## 📚 Learning Objectives
-
-This project was developed with focus on learning and practicing:
-
-- ✅ Building REST APIs with Spring Boot
-- ✅ MySQL database integration
-- ✅ JPA/Hibernate ORM usage
-- ✅ Layered architecture pattern
-- ✅ Gradle build automation
-- ✅ Spring dependency injection
-- ✅ RESTful API design principles
-
----
-
-## ⚠️ Important Notes
-
-- The MySQL database must be running before starting the application
-- Tables are created automatically by Hibernate (`ddl-auto=update`)
-- Environment variables must be set before running the application (or configure `application.properties`)
-- All fields in the contract registration are required
-- CPF must be a valid 11-digit string
-- The API runs on port 8080 by default
-
----
-
-## 🛺 Author
+## 🛺 Autor
 
 <table>
   <tr>
@@ -323,4 +72,4 @@ This project was developed with focus on learning and practicing:
       </a>
     </td>
   </tr>
-</table>  
+</table>
