@@ -139,7 +139,7 @@ Request body:
   "cpf": "12345678900",
   "nomeTitular": "João Silva",
   "valorMensal": 2500.00,
-  "status": true
+  "Status": true
 }
 ```
 
@@ -152,7 +152,7 @@ curl --request POST \
   "cpf": "12345678900",
   "nomeTitular": "João Silva",
   "valorMensal": 2500.00,
-  "status": true
+  "Status": true
 }'
 ```
 
