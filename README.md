@@ -136,7 +136,7 @@ Request body:
   "cpf": "12345678900",
   "nomeTitular": "João Silva",
   "valorMensal": 2500.00,
-  "ativo": true
+  "status": true
 }
 ```
 
@@ -149,7 +149,7 @@ curl --request POST \
   "cpf": "12345678900",
   "nomeTitular": "João Silva",
   "valorMensal": 2500.00,
-  "ativo": true
+  "status": true
 }'
 ```
 
@@ -160,7 +160,7 @@ Response (201 Created):
   "cpf": "12345678900",
   "nomeTitular": "João Silva",
   "valorMensal": 2500.00,
-  "ativo": true
+  "status": true
 }
 ```
 
@@ -184,14 +184,14 @@ Response (200 OK):
     "cpf": "12345678900",
     "nomeTitular": "João Silva",
     "valorMensal": 2500.00,
-    "ativo": true
+    "status": true
   },
   {
     "contratoId": 2,
     "cpf": "98765432100",
     "nomeTitular": "Maria Santos",
     "valorMensal": 3200.00,
-    "ativo": false
+    "status": false
   }
 ]
 ```
