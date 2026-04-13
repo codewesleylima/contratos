@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public interface ContratoRepository extends JpaRepository<ContratoModel, UUID> {
 
-    List<ContratoModel> findByStatus(boolean status);
+    List<ContratoModel> findByCpf(String cpf);
 
     Optional<ContratoModel> findByNomeTitular(String nomeTitular);
 }
