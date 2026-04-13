@@ -32,4 +32,9 @@ public class ContratoController {
         return contratoService.listarContratos();
     }
 
+    @GetMapping("/listar-status/{status}")
+    public List<ContratoModel> buscarContratosPorStatus(@PathVariable boolean status) {
+        return contratoService.buscarContratosPorStatus(status);
+    }
+
 }

@@ -24,4 +24,9 @@ public class ContratoServiceImpl implements ContratoService {
     public List<ContratoModel> listarContratos() {
         return repository.findAll();
     }
+
+    @Override
+    public List<ContratoModel> buscarContratosPorStatus(boolean status) {
+        return repository.findByStatus(status);
+    }
 }
