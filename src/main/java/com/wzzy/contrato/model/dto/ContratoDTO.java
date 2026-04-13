@@ -6,6 +6,6 @@ import jakarta.validation.constraints.NotNull;
 public record ContratoDTO(
         @NotBlank String cpf,
         @NotBlank String nomeTitular,
-        @NotNull Double valorMensal,
-        @NotNull Boolean Status){
+        @NotNull double valorMensal,
+        @NotNull boolean status){
 }
