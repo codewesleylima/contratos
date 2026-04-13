@@ -24,7 +24,7 @@ public class ContratoServiceImpl implements ContratoService {
         contratoModel.setCpf(contratoDTO.cpf());
         contratoModel.setNomeTitular(contratoDTO.nomeTitular());
         contratoModel.setValorMensal(contratoDTO.valorMensal());
-        contratoModel.setStatus(contratoDTO.Status());
+        contratoModel.setStatus(contratoDTO.status());
 
         return repository.save(contratoModel);
     }
