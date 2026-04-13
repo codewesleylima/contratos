@@ -9,6 +9,9 @@ REST API developed for contract management, allowing users to register contracts
 
 #### Features:
 1. 📝 Register new contracts;
+2. 📋 List all contracts;
+3. 🔍 Search contracts by status;
+4. 🔎 Search contract by holder name;
 
 #### Technologies Used:
 - ☕ Java 26;
@@ -192,6 +195,56 @@ Response (200 OK):
     "nomeTitular": "Maria Santos",
     "valorMensal": 3200.00,
     "status": false
+  }
+]
+```
+
+---
+
+#### 3️⃣ Search Contracts by Status
+**GET** `/v1/contratos/buscar-por-status/{status}`
+
+cURL Example (searching for active contracts):
+```bash
+curl --request GET \
+  --url http://localhost:8080/v1/contratos/buscar-por-status/true \
+  --header 'User-Agent: insomnia/10.3.1'
+```
+
+Response (200 OK):
+```json
+[
+  {
+    "contratoId": 1,
+    "cpf": "12345678900",
+    "nomeTitular": "João Silva",
+    "valorMensal": 2500.00,
+    "status": true
+  }
+]
+```
+
+---
+
+#### 4️⃣ Search Contract by Holder Name
+**GET** `/v1/contratos/buscar-por-nome/{nome}`
+
+cURL Example (searching for contracts of holder "João Silva"):
+```bash
+curl --request GET \
+  --url http://localhost:8080/v1/contratos/buscar-por-nome/João%20Silva \
+  --header 'User-Agent: insomnia/10.3.1'
+```
+
+Response (200 OK):
+```json
+[
+  {
+    "contratoId": 1,
+    "cpf": "12345678900",
+    "nomeTitular": "João Silva",
+    "valorMensal": 2500.00,
+    "status": true
   }
 ]
 ```
