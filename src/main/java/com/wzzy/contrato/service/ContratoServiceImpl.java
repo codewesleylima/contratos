@@ -30,13 +30,13 @@ public class ContratoServiceImpl implements ContratoService {
     }
 
     @Override
-    public List<ContratoModel> listarContratos() {
+    public List<ContratoModel> buscarTodosContros() {
         return repository.findAll();
     }
 
     @Override
-    public List<ContratoModel> buscarContratosPorStatus(boolean status) {
-        return repository.findByStatus(status);
+    public List<ContratoModel> buscarContratosPorCpf(String cpf) {
+        return repository.findByCpf(cpf);
     }
 
     @Override
