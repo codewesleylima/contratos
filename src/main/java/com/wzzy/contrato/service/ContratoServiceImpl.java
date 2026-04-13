@@ -1,6 +1,7 @@
 package com.wzzy.contrato.service;
 
 import com.wzzy.contrato.model.ContratoModel;
+import com.wzzy.contrato.model.dto.ContratoDTO;
 import com.wzzy.contrato.repository.ContratoRepository;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,14 @@ public class ContratoServiceImpl implements ContratoService {
     }
 
     @Override
-    public ContratoModel cadastrarContrato(ContratoModel contratoModel) {
+    public ContratoModel cadastrarContrato(ContratoDTO contratoDTO) {
+        ContratoModel contratoModel = new ContratoModel();
+
+        contratoModel.setCpf(contratoDTO.cpf());
+        contratoModel.setNomeTitular(contratoDTO.nomeTitular());
+        contratoModel.setValorMensal(contratoDTO.valorMensal());
+        contratoModel.setStatus(contratoDTO.Status());
+
         return repository.save(contratoModel);
     }
 
