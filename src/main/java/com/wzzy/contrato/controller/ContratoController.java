@@ -3,7 +3,6 @@ package com.wzzy.contrato.controller;
 import com.wzzy.contrato.model.ContratoModel;
 import com.wzzy.contrato.model.dto.ContratoDTO;
 import com.wzzy.contrato.service.ContratoService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,14 +29,14 @@ public class ContratoController {
         return new ResponseEntity<>(novoContrato, HttpStatus.CREATED);
     }
 
-    @GetMapping("/listar-todos")
-    public List<ContratoModel> listarContratos() {
-        return contratoService.listarContratos();
+    @GetMapping("/buscar-todos")
+    public List<ContratoModel> buscarTodosContratos() {
+        return contratoService.buscarTodosContros();
     }
 
-    @GetMapping("/listar-status/{status}")
-    public List<ContratoModel> buscarContratosPorStatus(@PathVariable boolean status) {
-        return contratoService.buscarContratosPorStatus(status);
+    @GetMapping("/buscar-cpf/{cpf}")
+    public List<ContratoModel> buscarContratosPorStatus(@PathVariable String cpf) {
+        return contratoService.buscarContratosPorCpf(cpf);
     }
 
     @GetMapping("/buscar-nome/{nome}")
