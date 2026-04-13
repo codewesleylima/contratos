@@ -6,20 +6,24 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
+import java.util.UUID;
+
+@Entity
+@Table(name = "TB_CONTRATOS")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "contrato")
-public class ContratoModel {
+public class ContratoModel implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long contratoId;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID contratoId;
 
     private String cpf;
     private String nomeTitular;
     private double valorMensal;
     private boolean status;
+
 }
