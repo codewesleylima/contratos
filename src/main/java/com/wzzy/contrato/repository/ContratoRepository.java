@@ -1,13 +1,15 @@
 package com.wzzy.contrato.repository;
 
-import com.wzzy.contrato.model.ContratoModel;
+import com.wzzy.contrato.model.DadosContratoModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
-public interface ContratoRepository extends JpaRepository<ContratoModel, Long> {
+public interface ContratoRepository extends JpaRepository<DadosContratoModel, UUID> {
 
-    List<ContratoModel> findByStatus(boolean status);
+    List<DadosContratoModel> findByCpf(String cpf);
 
-    List<ContratoModel> findByNomeTitular(String nomeTitular);
+    Optional<DadosContratoModel> findByNomeTitular(String nomeTitular);
 }

@@ -1,14 +1,19 @@
 package com.wzzy.contrato.service;
 
-import com.wzzy.contrato.model.ContratoModel;
+import com.wzzy.contrato.model.DadosContratoModel;
+import com.wzzy.contrato.model.dto.DadosContratoDTO;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ContratoService {
 
-    ContratoModel cadastrarContrato(ContratoModel contratoModel);
 
-    List<ContratoModel> listarContratos();
+    DadosContratoModel cadastrarContrato(DadosContratoDTO dadosContratoDTO);
 
-    List<ContratoModel> buscarContratosPorStatus(boolean status);
+    List<DadosContratoModel> buscarTodosContros();
+
+    List<DadosContratoModel> buscarContratosPorCpf(String cpf);
+
+    Optional<DadosContratoModel> buscarContratoPorNome(String nome);
 }

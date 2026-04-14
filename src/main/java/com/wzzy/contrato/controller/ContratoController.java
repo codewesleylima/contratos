@@ -1,6 +1,7 @@
 package com.wzzy.contrato.controller;
 
-import com.wzzy.contrato.model.ContratoModel;
+import com.wzzy.contrato.model.DadosContratoModel;
+import com.wzzy.contrato.model.dto.DadosContratoDTO;
 import com.wzzy.contrato.service.ContratoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("v1/contratos")
@@ -21,20 +23,25 @@ public class ContratoController {
     }
 
     @PostMapping("/cadastrar")
-    public ResponseEntity<ContratoModel> cadastrarContrato(@RequestBody ContratoModel contratoModel) {
+    public ResponseEntity<DadosContratoModel> cadastrarContrato(@RequestBody DadosContratoDTO dadosContratoDTO) {
 
-        ContratoModel novoContrato = contratoService.cadastrarContrato(contratoModel);
+        DadosContratoModel novoContrato = contratoService.cadastrarContrato(dadosContratoDTO);
         return new ResponseEntity<>(novoContrato, HttpStatus.CREATED);
     }
 
-    @GetMapping("/listar-todos")
-    public List<ContratoModel> listarContratos() {
-        return contratoService.listarContratos();
+    @GetMapping("/buscar-todos")
+    public List<DadosContratoModel> buscarTodosContratos() {
+        return contratoService.buscarTodosContros();
     }
 
-    @GetMapping("/listar-status/{status}")
-    public List<ContratoModel> buscarContratosPorStatus(@PathVariable boolean status) {
-        return contratoService.buscarContratosPorStatus(status);
+    @GetMapping("/buscar-cpf/{cpf}")
+    public List<DadosContratoModel> buscarContratosPorStatus(@PathVariable String cpf) {
+        return contratoService.buscarContratosPorCpf(cpf);
+    }
+
+    @GetMapping("/buscar-nome/{nome}")
+    public Optional<DadosContratoModel> buscarContratosPorNome(@PathVariable String nome) {
+        return contratoService.buscarContratoPorNome(nome);
     }
 
 }
