@@ -1,8 +1,6 @@
 package com.wzzy.contrato.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +17,7 @@ import java.io.Serializable;
 public class DadosPessoaisModel implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private Long dadosPessoaisId;
     private String nomeCompleto;
     private String cpf;
