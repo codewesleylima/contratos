@@ -21,6 +21,7 @@ public class DadosEnderecoModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID dadosEnderecoID;
 
+
     private String rua;
     private String numero;
     private String complemento;
