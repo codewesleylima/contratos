@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotNull;
 
 public record DadosContratoDTO(
         @NotBlank String cpf,
-        @NotBlank String nomeTitular,
+        @NotBlank String nomeCompleto,
         @NotNull double valorMensal,
         @NotNull boolean status){
 }

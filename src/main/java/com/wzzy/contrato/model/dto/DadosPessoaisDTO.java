@@ -1,4 +1,14 @@
 package com.wzzy.contrato.model.dto;
 
-public class DadosPessoaisDTO {
+import jakarta.validation.constraints.NotBlank;
+
+public record DadosPessoaisDTO (
+
+        @NotBlank String cpf,
+        @NotBlank String nomeCompleto,
+        @NotBlank String rg,
+        @NotBlank String dataNascimento,
+        @NotBlank String estadoCivil,
+        @NotBlank String nacionalidade,
+        @NotBlank String naturalidade){
 }
