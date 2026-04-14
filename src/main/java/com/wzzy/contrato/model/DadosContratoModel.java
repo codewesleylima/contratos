@@ -1,5 +1,6 @@
 package com.wzzy.contrato.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.wzzy.contrato.model.dto.DadosProfissionaisDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -25,16 +26,19 @@ public class DadosContratoModel implements Serializable {
     @UuidGenerator
     private UUID dadosContratoId;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "dadosProfissionaisId")
+    @JsonProperty("dadosProfissionais")
     private DadosProfissionaisModel dadosProfissionais;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "dadosPessoaisId")
+    @JsonProperty("dadosPessoais")
     private DadosPessoaisModel dadosPessoaisModel;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "dadosEnderecoId")
+    @JsonProperty("dadosEndereco")
     private DadosEnderecoModel dadosEnderecoModel;
 
     private double valorMensal;
