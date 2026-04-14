@@ -24,7 +24,7 @@ public class DadosContratoModel implements Serializable {
     private UUID dadosContratoId;
 
     @ManyToOne
-    @JoinColumn(name = "dadosPessoaisId")
+    @JoinColumn(name = "dadosProfissionaisId")
     private DadosProfissionaisModel dadosProfissionais;
 
     private String nomeTitular;
