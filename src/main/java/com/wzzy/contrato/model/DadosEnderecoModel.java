@@ -19,7 +19,7 @@ public class DadosEnderecoModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID dadosEnderecoID;
+    private UUID dadosEnderecoId;
 
 
     private String rua;
