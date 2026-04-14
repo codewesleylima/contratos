@@ -30,7 +30,11 @@ public class DadosContratoModel implements Serializable {
     @ManyToOne
     @JoinColumn(name = "dadosPessoaisId")
     private DadosPessoaisModel dadosPessoaisModel;
-    private String nomeTitular;
+
+    @ManyToOne
+    @JoinColumn(name = "dadosEnderecoId")
+    private DadosEnderecoModel dadosEnderecoModel;
+
     private double valorMensal;
     private boolean status;
 
