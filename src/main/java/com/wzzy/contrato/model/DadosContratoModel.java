@@ -1,27 +1,32 @@
 package com.wzzy.contrato.model;
 
+import com.wzzy.contrato.model.dto.DadosProfissionaisDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.br.CPF;
 
 import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
-@Table(name = "TB_CONTRATOS")
+@Table(name = "TB_DADOS_CONTRATOS")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ContratoModel implements Serializable {
+public class DadosContratoModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID contratoId;
+    private UUID dadosContratoId;
 
-    private String cpf;
+    @ManyToOne
+    @JoinColumn(name = "dadosPessoaisId")
+    private DadosProfissionaisModel dadosProfissionais;
+
     private String nomeTitular;
     private double valorMensal;
     private boolean status;
