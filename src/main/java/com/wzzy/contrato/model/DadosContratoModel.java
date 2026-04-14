@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.UuidGenerator;
 import org.hibernate.validator.constraints.br.CPF;
 
 import java.io.Serializable;
@@ -20,7 +21,8 @@ import java.util.UUID;
 public class DadosContratoModel implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue
+    @UuidGenerator
     private UUID dadosContratoId;
 
     @ManyToOne

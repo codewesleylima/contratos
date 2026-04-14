@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.UuidGenerator;
 
 import java.io.Serializable;
 import java.util.UUID;
@@ -18,7 +19,8 @@ import java.util.UUID;
 public class DadosProfissionaisModel implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue
+    @UuidGenerator
     private UUID dadosProfissionaisId;
 
     private String profissao;

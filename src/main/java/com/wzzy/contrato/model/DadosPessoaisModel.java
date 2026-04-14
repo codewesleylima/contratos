@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.UuidGenerator;
 
 import java.io.Serializable;
 
@@ -17,7 +18,8 @@ import java.io.Serializable;
 public class DadosPessoaisModel implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue
+    @UuidGenerator
     private Long dadosPessoaisId;
     private String nomeCompleto;
     private String cpf;
