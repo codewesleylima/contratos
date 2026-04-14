@@ -21,8 +21,8 @@ public class ContratoServiceImpl implements ContratoService {
     public DadosContratoModel cadastrarContrato(DadosContratoDTO dadosContratoDTO) {
         DadosContratoModel dadosContratoModel = new DadosContratoModel();
 
-        dadosContratoModel.setCpf(dadosContratoDTO.cpf());
-        dadosContratoModel.setNomeTitular(dadosContratoDTO.nomeTitular());
+        dadosContratoModel.getDadosPessoaisModel().setCpf(dadosContratoDTO.cpf());
+        dadosContratoModel.getDadosPessoaisModel().setNomeCompleto(dadosContratoDTO.nomeTitular());
         dadosContratoModel.setValorMensal(dadosContratoDTO.valorMensal());
         dadosContratoModel.setStatus(dadosContratoDTO.status());
 
