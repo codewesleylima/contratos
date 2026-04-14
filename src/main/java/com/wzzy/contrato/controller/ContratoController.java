@@ -1,7 +1,7 @@
 package com.wzzy.contrato.controller;
 
-import com.wzzy.contrato.model.ContratoModel;
-import com.wzzy.contrato.model.dto.ContratoDTO;
+import com.wzzy.contrato.model.DadosContratoModel;
+import com.wzzy.contrato.model.dto.DadosContratoDTO;
 import com.wzzy.contrato.service.ContratoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,24 +23,24 @@ public class ContratoController {
     }
 
     @PostMapping("/cadastrar")
-    public ResponseEntity<ContratoModel> cadastrarContrato(@RequestBody ContratoDTO contratoDTO) {
+    public ResponseEntity<DadosContratoModel> cadastrarContrato(@RequestBody DadosContratoDTO dadosContratoDTO) {
 
-        ContratoModel novoContrato = contratoService.cadastrarContrato(contratoDTO);
+        DadosContratoModel novoContrato = contratoService.cadastrarContrato(dadosContratoDTO);
         return new ResponseEntity<>(novoContrato, HttpStatus.CREATED);
     }
 
     @GetMapping("/buscar-todos")
-    public List<ContratoModel> buscarTodosContratos() {
+    public List<DadosContratoModel> buscarTodosContratos() {
         return contratoService.buscarTodosContros();
     }
 
     @GetMapping("/buscar-cpf/{cpf}")
-    public List<ContratoModel> buscarContratosPorStatus(@PathVariable String cpf) {
+    public List<DadosContratoModel> buscarContratosPorStatus(@PathVariable String cpf) {
         return contratoService.buscarContratosPorCpf(cpf);
     }
 
     @GetMapping("/buscar-nome/{nome}")
-    public Optional<ContratoModel> buscarContratosPorNome(@PathVariable String nome) {
+    public Optional<DadosContratoModel> buscarContratosPorNome(@PathVariable String nome) {
         return contratoService.buscarContratoPorNome(nome);
     }
 
