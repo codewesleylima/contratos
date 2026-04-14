@@ -5,8 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.UuidGenerator;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 @Entity
 @Table(name = "TB_DADOS_PESSOAIS")
@@ -17,8 +19,9 @@ import java.io.Serializable;
 public class DadosPessoaisModel implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private Long dadosPessoaisId;
+    @GeneratedValue
+    @UuidGenerator
+    private UUID dadosPessoaisId;
     private String nomeCompleto;
     private String cpf;
     private String rg;

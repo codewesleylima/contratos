@@ -29,19 +29,19 @@ public class ContratoController {
         return new ResponseEntity<>(novoContrato, HttpStatus.CREATED);
     }
 
-    @GetMapping("/buscar-todos")
-    public List<DadosContratoModel> buscarTodosContratos() {
-        return contratoService.buscarTodosContros();
-    }
-
-    @GetMapping("/buscar-cpf/{cpf}")
-    public List<DadosContratoModel> buscarContratosPorStatus(@PathVariable String cpf) {
-        return contratoService.buscarContratosPorCpf(cpf);
-    }
-
-    @GetMapping("/buscar-nome/{nome}")
-    public Optional<DadosContratoModel> buscarContratosPorNome(@PathVariable String nome) {
-        return contratoService.buscarContratoPorNome(nome);
-    }
+//    @GetMapping("/buscar-todos")
+//    public List<DadosContratoModel> buscarTodosContratos() {
+//        return contratoService.buscarTodosContros();
+//    }
+//
+//    @GetMapping("/buscar-cpf/{cpf}")
+//    public List<DadosContratoModel> buscarContratosPorStatus(@PathVariable String cpf) {
+//        return contratoService.buscarContratosPorCpf(cpf);
+//    }
+//
+//    @GetMapping("/buscar-nome/{nome}")
+//    public Optional<DadosContratoModel> buscarContratosPorNome(@PathVariable String nome) {
+//        return contratoService.buscarContratoPorNome(nome);
+//    }
 
 }

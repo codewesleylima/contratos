@@ -5,13 +5,10 @@
 ## PROJETO PESSOAL - GERENCIAMENTO DE CONTRATOS 📋 📑:
 
 #### Descrição:
-Projeto voltado para a criação de uma API REST que cadastre contratos no banco de dados local, seguindo arquitetura em camadas com Spring Boot.
+Projeto voltado para a criação de uma API REST que cadastre contratos completos no banco de dados local, incluindo dados pessoais, profissionais e de endereço do titular, seguindo arquitetura em camadas com Spring Boot.
 
 #### Funcionalidades:
-1. 📝 Cadastro de contratos;
-2. 📋 Listagem de contratos;
-3. 🔍 Busca de contratos por status;
-4. 🔎 Busca de contrato por nome do titular;
+1. 📝 Cadastro de contratos completos (dados pessoais, profissionais, endereço e contrato);
 
 #### Tecnologias utilizadas:
 - ☕ Java 25;
@@ -24,39 +21,40 @@ Projeto voltado para a criação de uma API REST que cadastre contratos no banco
 
 #### Curl de exemplo:
 
-1 - Cadastro de contrato:
+1 - Cadastro de contrato completo:
 ```cmd
 curl --request POST \
   --url http://localhost:8080/v1/contratos/cadastrar \
   --header 'Content-Type: application/json' \
   --header 'User-Agent: insomnia/10.3.1' \
   --data '{
-  "cpf": "12345678900",
-  "nomeTitular": "João Silva",
+  "dadosPessoais": {
+    "nomeCompleto": "João Silva Santos",
+    "cpf": "12345678900",
+    "rg": "12345678",
+    "dataNascimento": "1990-01-15",
+    "estadoCivil": "Solteiro",
+    "nacionalidade": "Brasileiro"
+  },
+  "dadosProfissionais": {
+    "profissao": "Engenheiro",
+    "cargo": "Analista de Sistemas",
+    "funcao": "Desenvolvimento",
+    "salario": "5000.00",
+    "departamento": "TI"
+  },
+  "dadosEndereco": {
+    "rua": "Rua das Flores",
+    "numero": "123",
+    "complemento": "Apto 45",
+    "bairro": "Centro",
+    "cidade": "São Paulo",
+    "estado": "SP",
+    "cep": "01234-567"
+  },
   "valorMensal": 2500.00,
-  "Status": true
+  "status": true
 }'
-```
-
-2 - Listagem de contratos:
-```cmd
-curl --request GET \
-  --url http://localhost:8080/v1/contratos/listar-todos \
-  --header 'User-Agent: insomnia/10.3.1'
-```
-
-3 - Busca de contratos por status:
-```cmd
-curl --request GET \
-  --url http://localhost:8080/v1/contratos/listar-status/true \
-  --header 'User-Agent: insomnia/10.3.1'
-```
-
-4 - Busca de contrato por nome:
-```cmd
-curl --request GET \
-  --url http://localhost:8080/v1/contratos/buscar-nome/João \
-  --header 'User-Agent: insomnia/10.3.1'
 ```
 
 ## 🛺 Autor

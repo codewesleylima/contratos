@@ -11,9 +11,9 @@ public interface ContratoService {
 
     DadosContratoModel cadastrarContrato(DadosContratoDTO dadosContratoDTO);
 
-    List<DadosContratoModel> buscarTodosContros();
-
-    List<DadosContratoModel> buscarContratosPorCpf(String cpf);
-
-    Optional<DadosContratoModel> buscarContratoPorNome(String nome);
+//    List<DadosContratoModel> buscarTodosContros();
+//
+//    List<DadosContratoModel> buscarContratosPorCpf(String cpf);
+//
+//    Optional<DadosContratoModel> buscarContratoPorNome(String nome);
 }
