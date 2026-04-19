@@ -1,15 +1,12 @@
 package com.wzzy.contrato.controller;
 
 import com.wzzy.contrato.model.DadosContratoModel;
-import com.wzzy.contrato.model.dto.DadosContratoDTO;
+import com.wzzy.contrato.model.dto.DadoContratoDTO;
 import com.wzzy.contrato.service.ContratoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("v1/contratos")
@@ -23,9 +20,9 @@ public class ContratoController {
     }
 
     @PostMapping("/cadastrar")
-    public ResponseEntity<DadosContratoModel> cadastrarContrato(@RequestBody DadosContratoDTO dadosContratoDTO) {
+    public ResponseEntity<DadosContratoModel> cadastrarContrato(@RequestBody DadoContratoDTO dadoContratoDTO) {
 
-        DadosContratoModel novoContrato = contratoService.cadastrarContrato(dadosContratoDTO);
+        DadosContratoModel novoContrato = contratoService.cadastrarDadoContrato(dadoContratoDTO);
         return new ResponseEntity<>(novoContrato, HttpStatus.CREATED);
     }
 
