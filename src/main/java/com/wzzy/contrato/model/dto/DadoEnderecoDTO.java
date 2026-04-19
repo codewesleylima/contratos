@@ -2,7 +2,7 @@ package com.wzzy.contrato.model.dto;
 
 import jakarta.validation.constraints.NotBlank;
 
-public record DadosEnderecoDTO (
+public record DadoEnderecoDTO(
 
         String rua,
         String complemento,

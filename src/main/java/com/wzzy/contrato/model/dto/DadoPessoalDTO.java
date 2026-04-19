@@ -2,7 +2,7 @@ package com.wzzy.contrato.model.dto;
 
 import jakarta.validation.constraints.NotBlank;
 
-public record DadosPessoaisDTO (
+public record DadoPessoalDTO(
 
         @NotBlank String cpf,
         @NotBlank String nomeCompleto,

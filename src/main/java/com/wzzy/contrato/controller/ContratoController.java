@@ -1,6 +1,6 @@
 package com.wzzy.contrato.controller;
 
-import com.wzzy.contrato.model.DadosContratoModel;
+import com.wzzy.contrato.model.DadoContratoModel;
 import com.wzzy.contrato.model.dto.DadoContratoDTO;
 import com.wzzy.contrato.service.ContratoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +20,9 @@ public class ContratoController {
     }
 
     @PostMapping("/cadastrar")
-    public ResponseEntity<DadosContratoModel> cadastrarContrato(@RequestBody DadoContratoDTO dadoContratoDTO) {
+    public ResponseEntity<DadoContratoModel> cadastrarContrato(@RequestBody DadoContratoDTO dadoContratoDTO) {
 
-        DadosContratoModel novoContrato = contratoService.cadastrarDadoContrato(dadoContratoDTO);
+        DadoContratoModel novoContrato = contratoService.cadastrarDadoContrato(dadoContratoDTO);
         return new ResponseEntity<>(novoContrato, HttpStatus.CREATED);
     }
 

@@ -11,22 +11,24 @@ import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
-@Table(name = "TB_DADOS_PESSOAIS")
+@Table(name = "TB_DADOS_ENDERECOS")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class DadosPessoaisModel implements Serializable {
+public class DadoEnderecoModel implements Serializable {
 
     @Id
     @GeneratedValue
     @UuidGenerator
-    private UUID dadosPessoaisId;
-    private String nomeCompleto;
-    private String cpf;
-    private String rg;
-    private String dataNascimento;
-    private String estadoCivil;
-    private String nacionalidade;
-    private String naturalidade;
+    private UUID dadosEnderecoId;
+
+    private String rua;
+    private String numero;
+    private String complemento;
+    private String bairro;
+    private String cidade;
+    private String estado;
+    private String cep;
+
 }

@@ -16,7 +16,7 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class DadosProfissionaisModel implements Serializable {
+public class DadoProfissionalModel implements Serializable {
 
     @Id
     @GeneratedValue

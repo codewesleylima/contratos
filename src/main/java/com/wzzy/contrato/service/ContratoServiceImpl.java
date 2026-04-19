@@ -1,7 +1,7 @@
 package com.wzzy.contrato.service;
 
 import com.wzzy.contrato.mapper.DadoContratoMapper;
-import com.wzzy.contrato.model.DadosContratoModel;
+import com.wzzy.contrato.model.DadoContratoModel;
 import com.wzzy.contrato.model.dto.DadoContratoDTO;
 import com.wzzy.contrato.repository.ContratoRepository;
 import org.springframework.stereotype.Service;
@@ -18,10 +18,10 @@ public class ContratoServiceImpl implements ContratoService {
     }
 
     @Override
-    public DadosContratoModel cadastrarDadoContrato(DadoContratoDTO dadoContratoDTO) {
+    public DadoContratoModel cadastrarDadoContrato(DadoContratoDTO dadoContratoDTO) {
 
-        DadosContratoModel dadosContratoModel = dadoContratoMapper.paraDadosContratoModel(dadoContratoDTO);
-            return repository.save(dadosContratoModel);
+        DadoContratoModel dadoContratoModel = dadoContratoMapper.paraDadosContratoModel(dadoContratoDTO);
+            return repository.save(dadoContratoModel);
         }
     }
 
